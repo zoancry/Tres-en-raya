@@ -1,0 +1,15 @@
+body{
+    background-color: hsl(174, 5%, 41%);
+
+
+}
+
+#frame {
+        background-color: hsl(172, 67%, 45%); 
+        min-height: 100px;
+    }
+    
+#calculator {
+        background-color: white; 
+    }
+  
