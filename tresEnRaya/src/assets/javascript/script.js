@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const casillas = document.querySelectorAll('.tablero .casilla');//me coge tanto el tablero como las casillas
-    const cuentaTurnos = document.querySelector('.turnoSiguiente');//me coge el apartado de "turnoSigueitne"
+    const cuentaTurnos = document.querySelector('.turnoSiguiente');//me coge el apartado de "turnoSiguiente"
     let turn = true;
 
     casillas.forEach(function (casilla) {
