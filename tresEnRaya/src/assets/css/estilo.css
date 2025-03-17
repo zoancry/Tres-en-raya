@@ -1,3 +1,9 @@
+@font-face {
+    font-family: ;
+    src: url() format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
 .body{
     align-items: center;
 }
@@ -16,7 +22,7 @@
     height: 200px;
     width: 200px;
     gap: 5px; /* Espaciado entre celdas */
-    background-color: black; /* Fondo del tablero */
+    background-color: rgb(229, 52, 52); /* Fondo del tablero */
     background-size: 100% 100%;
     padding: 5px;
     
@@ -29,14 +35,14 @@
     width: 40px;
     border: 3px solid;
 }
-#turnos{
+.turnoSiguiente{
     background-color: blue;
 }
 #resultados{
     max-width: fit-content;
     background-color: blueviolet;
 }
-@media (min-width: 768px) {
+@media (min-width: 765px) {
     #juego{
         display: flex;
         flex-direction: row;
