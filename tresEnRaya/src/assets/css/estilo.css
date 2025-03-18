@@ -1,6 +1,6 @@
 @font-face {
-    font-family: ;
-    src: url() format('truetype');
+    font-family: 'stoke' ;
+    src: url(./fonts/DM_Sans\,Dancing_Script\,Stoke/) format('truetype');
     font-weight: 700;
     font-style: normal;
 }
