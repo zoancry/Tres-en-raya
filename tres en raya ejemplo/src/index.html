@@ -1,26 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tres en raya</title>
+  <style>
+    @font-face {
+      font-family: 'stoke';
+      src: url(./fonts/DM_Sans\,Dancing_Script\,Stoke/Stoke/Stoke-Regular.ttf) format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/icon-dollar.svg">
-    
-    <title>Tip calculator</title>
-    <script rel="script" href="./script.js"></script>
-    <style rel="stylesheet" href="./style.css"></style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: stoke;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .canvas {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f4f4f4;
+    }
+
+    .tarjeta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: aquamarine;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #juego {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .tablero {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      background: url('./imagenes/tablero.jpg');
+      background-size: 100% 100%;
+      margin-bottom: 1rem;
+    }
+
+    .casilla {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      height: 9vh;
+      width: 9vh;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    #resultados {
+      background-color: blueviolet;
+      padding: 1rem;
+      border-radius: 8px;
+      color: white;
+      text-align: center;
+    }
+
+    @media (min-width: 765px) {
+      .tarjeta {
+        flex-direction: row;
+        width: 30%;
+        max-width: 600px;
+        margin: 5%;
+      }
+
+      #juego {
+        margin-right: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section id="frame">
-        <h1>Splitter</h1>
-    <section id="calculator">
-        <div id="input">
+  <header>
+    <h1>Tres en raya</h1>
+  </header>
 
+  <div class="canvas">
+    <section class="tarjeta">
+      <section id="juego">
+        <div class="tablero">
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
+          <div class="casilla"></div>
         </div>
-        <div id="result">
+        <aside class="turnoSiguiente">Es el turno de x</aside>
+      </section>
 
+      <section id="resultados">
+        <p>contador de victorias y derrotas</p>
+        <div id="victoriasX">
+          <h3></h3>
         </div>
+        <div id="victoriasO">
+          <h3></h3>
+        </div>
+      </section>
     </section>
-    </section>
+  </div>
+
+  <script>
+    const casillas = document.querySelectorAll('.tablero .casilla'); 
+    const cuentaTurnos = document.querySelector('.turnoSiguiente'); 
+    let turn = true;
+
+    casillas.forEach(function (casilla) {
+        casilla.addEventListener('click', function () {
+            if (casilla.textContent.trim() === '' && !casilla.style.backgroundImage) {
+                if (turn) {
+                    casilla.style.backgroundImage = "url('./assets/css/imagenes/x_tiza.png')";
+                    cuentaTurnos.textContent = 'Es el turno de O';
+                } else {
+                    casilla.style.backgroundImage = "url('./assets/css/imagenes/circunferencia_tiza.png')";
+                    cuentaTurnos.textContent = 'Es el turno de X';
+                }
+                casilla.style.backgroundSize = "cover";
+                casilla.style.backgroundPosition = "center";
+                casilla.style.backgroundRepeat = "no-repeat";
+
+                turn = !turn;
+            }
+        });
+    });
+
+    // Simulación de contador
+    let victoriasX = 0;
+    let victoriasO = 0;
+
+    setInterval(() => {
+      victoriasX++;
+      victoriasO += 2;
+      document.getElementById('victoriasX').querySelector('h3').textContent = `Victorias X: ${victoriasX}`;
+      document.getElementById('victoriasO').querySelector('h3').textContent = `Victorias O: ${victoriasO}`;
+    }, 2000);
+  </script>
 </body>
 </html>
