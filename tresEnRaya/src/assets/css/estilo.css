@@ -13,6 +13,7 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background: url(./imagenes/clase-background.jpg);
     
     
 }
@@ -22,7 +23,7 @@ body{
     align-items: center;
     justify-content: center;
     margin: 5%;
-    background-color: aquamarine;
+    background: url(./imagenes/madera.jpg);
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -62,7 +63,8 @@ body{
 }
 #resultados{
     max-width: fit-content;
-    background-color: blueviolet;
+    color:darkgreen;
+    font-weight: 1000;
 }
 @media (min-width: 765px) {
     .tarjeta{
